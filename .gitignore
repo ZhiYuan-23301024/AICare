@@ -1,0 +1,47 @@
+# 1. Go语言编译产生的二进制可执行文件
+*.exe
+*.dll
+*.so
+*.dylib
+
+# 2. Go语言测试和覆盖率工具生成的文件
+*.test
+*.out
+*.prof
+
+# 3. 依赖管理目录 (通常使用 go mod 后，vendor 目录非必须提交，但有时为稳定依赖会提交)
+# 如果不需要提交 vendor 目录，取消下一行的注释
+# vendor/
+
+# 4. Go 工作区文件 (go.work)
+go.work
+
+# 5. 系统自动生成的隐藏文件或缓存文件
+.DS_Store
+Thumbs.db
+
+# 6. IDE 和编辑器的配置文件
+# Visual Studio Code
+.vscode/
+# JetBrains IDE (Goland, IntelliJ IDEA等)
+.idea/
+*.sublime-*
+__pycache__/
+
+# 7. 项目构建或运行时产生的目录
+dist/
+build/
+out/
+.tmp/
+tmp/
+
+# 8. 日志文件
+*.log
+
+# 9. 配置文件 (如果包含敏感信息，如密钥、数据库密码等)
+# config.yaml
+# config.json
+# .env
+
+# 10. 前端依赖 (如果项目包含前端部分)
+node_modules/
