@@ -45,7 +45,7 @@ func (r *aiRepository) SendMessage(messages []model.Message) (*model.AIResponse,
 		return nil, err
 	}
 	// 新建HTTP请求
-	req, err := http.NewRequest("POST", r.baseURL, bytes.NewBuffer(jsonData))
+	req, err := http.NewRequest("POST", r.baseURL+"/chat/completions", bytes.NewBuffer(jsonData))
 	if err != nil {
 		return nil, err
 	}

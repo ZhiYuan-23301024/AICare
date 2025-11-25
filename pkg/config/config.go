@@ -11,6 +11,6 @@ func Load() *Config {
 	return &Config{
 		ServerPort: ":8080",
 		AIApiKey:   "sk-bxbuwkbwyqooyvbhhsfpddbnfrydysffoxgulwsphhkjimxp",
-		AIBaseURL:  "https://api.siliconflow.cn/v1/chat/completions",
+		AIBaseURL:  "https://api.siliconflow.cn/v1",
 	}
 }
