@@ -22,6 +22,7 @@ func NewAIService(aiRepo repository.AIRepository) AIService {
 func (s *aiService) AskQuestion(question string) (string, error) {
 	// 此处可扩展业务逻辑，如对话历史管理、提示词工程等
 	messages := []model.Message{
+		{Role: "system", Content: "You are a helpful assistant."},
 		{Role: "user", Content: question},
 	}
 
@@ -29,7 +30,10 @@ func (s *aiService) AskQuestion(question string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-
+	// 检查response是否为空
+	if response == nil {
+		return "The AI request has an error", nil
+	}
 	if len(response.Choices) == 0 {
 		return "The AI did not provide a response.", nil
 	}

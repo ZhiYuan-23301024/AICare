@@ -3,6 +3,7 @@ package handler
 import (
 	"AICare/internal/model"
 	"AICare/internal/service"
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -18,7 +19,11 @@ func NewAIHandler(aiService service.AIService) *AIHandler {
 }
 
 func (h *AIHandler) Ask(c *gin.Context) {
+
+	fmt.Println("Received Ask request")
+
 	var req model.ChatRequest
+
 	if err := c.ShouldBindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
 		return

@@ -33,15 +33,18 @@ func NewAIRepository(apiKey, baseURL string) AIRepository {
 
 func (r *aiRepository) SendMessage(messages []model.Message) (*model.AIResponse, error) {
 	aiReq := model.AIRequest{
-		Model:    "gpt-3.5-turbo",
-		Messages: messages,
+		Model:       "deepseek-ai/DeepSeek-V3",
+		Messages:    messages,
+		Temperature: 0.7,
+		MaxTokens:   1024,
+		Stream:      false,
 	}
-
+	//	序列化json
 	jsonData, err := json.Marshal(aiReq)
 	if err != nil {
 		return nil, err
 	}
-
+	// 新建HTTP请求
 	req, err := http.NewRequest("POST", r.baseURL, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return nil, err
@@ -50,6 +53,7 @@ func (r *aiRepository) SendMessage(messages []model.Message) (*model.AIResponse,
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer "+r.apiKey)
 
+	// 发送请求
 	resp, err := r.httpClient.Do(req)
 	if err != nil {
 		return nil, err
