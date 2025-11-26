@@ -1,0 +1,16 @@
+# Database configuration for GORM / Postgres.
+# 如果希望直接使用完整 DSN，可填 dsn 并留空其它字段。
+dsn: ""                          # 可选：完整 DSN，优先使用
+host: "localhost"
+port: 5432
+user: "postgres"
+password: ""                     # 本地可填，生产请通过环境变量/Secret 管理
+dbname: "aicare"
+sslmode: "disable"               # "disable" / "require" 等
+timezone: "UTC"
+
+# 连接池与日志配置
+max_open_conns: 50
+max_idle_conns: 10
+conn_max_lifetime_seconds: 1800  # 30 分钟
+log_level: "info"
