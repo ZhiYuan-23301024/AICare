@@ -1,0 +1,6 @@
+# 运行端口号
+server_port: ":8080"
+# 硅基流动API密钥
+ai_api_key: "your-own-api-key"
+# 硅基流动API地址
+ai_base_url: "your-own-api-base-url"
